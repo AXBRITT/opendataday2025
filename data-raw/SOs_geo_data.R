@@ -6,10 +6,12 @@ SOs = historic_event %>%
           SiteName,
           OutfallLatitude,
           OutfallLongitude) %>%
-  rename("SiteID" = ï..SiteId) %>%
+  rename("SiteID" = ï..SiteId,
+         "latitude" = OutfallLatitude,
+         "longitude" = OutfallLongitude) %>%
   distinct() %>%
   tidyr::drop_na() %>%
-  sf::st_as_sf(coords = c("OutfallLatitude", "OutfallLongitude"),
-               crs = 4326)
+  mutate(popup = glue::glue("<b> Site Name :</b> {SiteName} <br>
+                            <b> Site ID :</b> {SiteID} <br>"))
 
-usethis::use_data(SOs)
+usethis::use_data(SOs, overwrite = TRUE)

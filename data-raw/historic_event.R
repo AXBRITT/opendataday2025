@@ -22,7 +22,7 @@ names(historic_event_new) <- names(historic_event_old)
 
 # row bind the datasets together ----
 historic_event <- base::rbind(
-  historic_event_old,
+  histthisoric_event_old,
   historic_event_new
 )
 
