@@ -18,15 +18,15 @@ ui <- shiny::fluidPage(
     )
   ),
   card(
-    card_title("Map"),
+    card_title("Brown Fish Map"),
     card_body(leafletOutput("map", width = 330)),
-    card_footer("some footer")
+    card_footer("Looking for Brown fish since 2025.")
   )
 )
 
 server <- function(input, output) {
   load(here::here("data", "SOs.rda"))
-  load(here::here("data", "fish.rda"))
+  load(here::here("data", "fish_data.rda"))
   output$map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
@@ -35,19 +35,11 @@ server <- function(input, output) {
         popup = ~popup
       ) |>
       leaflet::addCircleMarkers(
-        data = fish,
-        lng = ~X,
-        lat = ~Y,
+        data = fish_data,
+        lng = ~longitude,
+        lat = ~latitude,
         color = "#32190a",
-        popup = shiny::div(
-          shiny::img(
-            src = ~img,
-            height = "25px",
-            width = "25px",
-            style = "border-radius:25px"
-          ),
-          ~SPECIES_NAME
-        )
+        popup = ~popup
       )
   })
 }
