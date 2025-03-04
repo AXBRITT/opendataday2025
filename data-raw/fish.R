@@ -74,7 +74,6 @@ fish <- base::cbind(
 fish <- fish |>
   dplyr::mutate(
     image = base::file.path(
-      "inst",
       "images",
       base::paste0(.data$SPECIES_NAME, ".PNG")
     )
