@@ -2,20 +2,36 @@ library(shiny)
 library(bslib)
 library(leaflet)
 
-ui = fluidPage(
-  card(card_title("Map"),
-       card_body(leafletOutput("map", width = 330)),
-       card_footer("some footer"))
+ui <- shiny::fluidPage(
+  shiny::navbarPage(
+    title = shiny::div(
+      shiny::img(
+        src = here::here("inst", "images", "icon.PNG"),
+        height = "75%",
+        style = "padding:3px"
+      ),
+      "Brown Fish - The Ecology Reporting App"
+    )
+  ),
+  card(
+    card_title("Map"),
+    card_body(leafletOutput("map", width = 330)),
+    card_footer("some footer")
+  )
 )
 
-server = function(input, output){
-  load("../data/SOs.rda")
-  output$map = renderLeaflet({
+server <- function(input, output) {
+  load(here::here("data", "SOs.rda"))
+  output$map <- renderLeaflet({
     leaflet() %>%
-      addTiles(providers$OpenStreetMap) %>%
-      addCircleMarkers(data = SOs,
-                       popup = ~popup)
+      addTiles() %>%
+      addCircleMarkers(
+        data = SOs,
+        popup = ~popup
+      )
   })
 }
 
-shinyApp(ui, server)
+#providers$OpenStreetMap
+
+shiny::shinyApp(ui, server)
