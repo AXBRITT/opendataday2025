@@ -1,8 +1,8 @@
 
-# opendataday2025
+# Open Data Day 2025
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of opendataday2025 is to ...
+The goal of Open Data Day 2025 is to ...
 
