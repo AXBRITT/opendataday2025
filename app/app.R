@@ -26,12 +26,28 @@ ui <- shiny::fluidPage(
 
 server <- function(input, output) {
   load(here::here("data", "SOs.rda"))
+  load(here::here("data", "fish.rda"))
   output$map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addCircleMarkers(
         data = SOs,
         popup = ~popup
+      ) |>
+      leaflet::addCircleMarkers(
+        data = fish,
+        lng = ~X,
+        lat = ~Y,
+        color = "#32190a",
+        popup = shiny::div(
+          shiny::img(
+            src = ~img,
+            height = "25px",
+            width = "25px",
+            style = "border-radius:25px"
+          ),
+          ~SPECIES_NAME
+        )
       )
   })
 }
