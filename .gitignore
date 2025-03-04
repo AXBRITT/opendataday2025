@@ -8,3 +8,5 @@
 /data-raw/*.csv
 opendataday2025.Rproj
 data
+/quarto/quarto_files
+/quarto/*.html
