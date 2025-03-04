@@ -1,14 +1,18 @@
 library(shiny)
+library(shinythemes)
 library(bslib)
 library(leaflet)
 
+shiny::addResourcePath("images", "inst/images")
+
 ui <- shiny::fluidPage(
+  theme = shinythemes::shinytheme("superhero"),
   shiny::navbarPage(
     title = shiny::div(
       shiny::img(
-        src = here::here("inst", "images", "icon.PNG"),
-        height = "75%",
-        style = "padding:3px"
+        src = base::file.path("images", "icon.PNG"),
+        height = "35px",
+        style = "padding:2px; border-radius:15px"
       ),
       "Brown Fish - The Ecology Reporting App"
     )
@@ -31,7 +35,5 @@ server <- function(input, output) {
       )
   })
 }
-
-#providers$OpenStreetMap
 
 shiny::shinyApp(ui, server)
