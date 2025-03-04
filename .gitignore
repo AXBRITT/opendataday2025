@@ -6,4 +6,5 @@
 .DS_Store
 .quarto
 /data-raw/*.csv
+opendataday2025.Rproj
 data
