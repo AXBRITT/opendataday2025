@@ -1,0 +1,20 @@
+---
+title: Brown Fish, the future of Ecology Reporting
+format:
+    revealjs:
+        theme:
+            moon
+---
+
+## What is "Brown Fish"?
+
+Brown Fish is a new Information and Reporting App powered by data from Wessex Water and data.gov.uk to provide a platform for users to explore their natural surrounding, get involved with nature and help prevent polutions.
+
+## How does it work?
+
+Brown Fish uses proprietory Event Data Monitor data from Wessex Water and open Ecology data from data.gov.uk to show users what is happening on inland waterways near them.
+The idea would be for users to get involved and upload their own observations of either kind of data, to provide more data for all users and other people who may be interested.
+
+## Where can I find out more?
+
+The project can be found on https://github.com/AXBRITT/opendataday2025

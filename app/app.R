@@ -19,7 +19,7 @@ ui <- shiny::fluidPage(
   ),
   card(
     card_title("Brown Fish Map"),
-    card_body(leafletOutput("map", width = 330)),
+    card_body(leafletOutput("map", height = "100%", height = "100%")),
     card_footer("Looking for Brown fish since 2025.")
   )
 )
